@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Travel Page</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: gold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: orange;
+    }
+
+    .card {
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <h1>Discover the World</h1>
+    <p>Frontend + Backend Simulation Example</p>
+
+    <button onclick="sendRequest()">Book Now</button>
+
+    <div class="card" id="responseBox"></div>
+  </div>
+
+  <script>
+    // FRONTEND FUNCTION (like React button click)
+    function sendRequest() {
+      
+      // Simulate sending request to backend
+      document.getElementById("responseBox").style.display = "block";
+      document.getElementById("responseBox").innerHTML = "⏳ Sending request...";
+
+      setTimeout(() => {
+        // BACKEND RESPONSE SIMULATION
+        const response = {
+          success: true,
+          message: "Booking Confirmed!",
+          bookingId: Math.floor(Math.random() * 10000)
+        };
+
+        // FRONTEND UPDATES UI
+        document.getElementById("responseBox").innerHTML = `
+          ✅ ${response.message}<br/>
+          🆔 Booking ID: ${response.bookingId}
+        `;
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
